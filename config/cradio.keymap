@@ -37,7 +37,7 @@
         };
 	
 	undo_redo: undo_redo {
-	    compatible = "zmk,behaviour-mod-morph";
+	    compatible = "zmk,behavior-mod-morph";
 	    label = "UNDO_REDO";
 	    #binding-cells = <0>;
 	    bindings = <&kp LC(Z)>, <&kp LC(Y)>;
@@ -45,7 +45,7 @@
 	};
 	
 	copy_cut: copy_cut {
-	    compatible = "zmk,behaviour-mod-morph";
+	    compatible = "zmk,behavior-mod-morph";
 	    label = "COPY_CUT";
 	    #binding-cells = <0>;
 	    bindings = <&kp LC(C)>, <&kp LC(X)>;
@@ -53,23 +53,32 @@
 	};
 	
 	copy_cut_paste: copy_cut_paste {
-	    compatible = "zmk,behaviour-mod-morph";
+	    compatible = "zmk,behavior-mod-morph";
 	    label = "COPY_CUT_PASTE";
 	    #binding-cells = <0>;
 	    bindings = <&copy_cut>, <&kp LC(V)>;
+	    mods = <(MOD_LSFT|MOD_RSFT)>;
+	}; 
+	
+	copy_paste: copy_paste {
+	    compatible = "zmk,behavior-mod-morph";
+	    label = "COPY_PASTE";
+	    #binding-cells = <0>;
+	    bindings = <&kp LC(C)>, <&kp LC(V)>;
 	    mods = <(MOD_LSFT|MOD_RSFT)>;
 	};
     };
     
     combos {
         compatible = "zmk,combos";
-	    combo_z {
+	
+	combo_z {
             timeout-ms = <50>;
             key-positions = <20 21>;
             layers = <DEFAULT>;
             bindings = <&kp Z>;
         };
-	    combo_q {
+	combo_q {
             timeout-ms = <50>;
             key-positions = <28 29>;
             layers = <DEFAULT>;
@@ -106,7 +115,7 @@
         
         symbols_layer {
             bindings = <
-            &kp ESC &kp TAB &kp GRAVE &kp TILDE &none 			                    &trans &trans &kp LBRC &kp RBRC &kp BACKSPACE 
+            &kp ESC &kp TAB &kp GRAVE &kp TILDE &none 			                    &trans &trans &kp LBRC &kp RBRC &bspc_del 
             &bhm LGUI EXCL &bhm LALT AT &bhm LSHFT NUHS &bhm LCTRL DLLR &kp POUND   &trans &bhm RCTRL EQUAL &bhm RSHFT LPAR &bhm RALT RPAR &bhm RGUI RETURN
             &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp NUBS				            &trans &kp PLUS &kp LBKT &kp RBKT &kp DEL
                                                                       &none &none   &none &none
@@ -124,7 +133,7 @@
         
         numpad_layer {
             bindings = <
-            &kp F1 &kp F2 &kp F3 &kp F4 &none 			                    &kp MINUS &kp N7 &kp N8 &kp N9 &kp BACKSPACE 
+            &kp F1 &kp F2 &kp F3 &kp F4 &none 			                    &kp MINUS &kp N7 &kp N8 &kp N9 &bspc_del 
             &bhm LGUI F5 &bhm LALT F6 &bhm LSHFT F7 &bhm LCTRL F8 &none     &kp EQUAL &bhm RCTRL N4 &bhm RSHFT N5 &bhm RALT N6 &bhm RGUI RETURN
             &kp F9 &kp F10 &kp F11 &kp F12 &none				            &kp N0 &kp N1 &kp N2 &kp N3 &kp DOT
                                                               &none &none   &none &none
@@ -142,9 +151,9 @@
         
         system_layer {
             bindings = <
-            &none &none &none &none &reset              &reset &none &none &none &none 
-            &none &none &none &none &none               &none &none &none &none &none
-            &none &none &none &none &none				&none &none &none &none &none
+            &none &bt BT_PRV &bt BT_NXT &bt BT_CLR &reset              &reset &none &none &none &none 
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none  &none &none &none &none &none
+            &none &none &none &none &none			       &none &none &none &none &none
                                         &none &none     &none &none
             >;
 		};
