@@ -92,9 +92,9 @@
         
         numpad_layer {
             bindings = <
-            &kp F1 &kp F2 &kp F3 &kp F4 &none 			                    &kp MINUS &kp 7 &kp 8 &kp 9 &kp BACKSPACE 
-            &bhm LGUI F5 &bhm LALT F6 &bhm LSHFT F7 &bhm LCTRL F8 &none     &kp EQUAL &bhm RCTRL 4 &bhm RSHFT 5 &bhm RALT 6 &bhm RGUI RETURN
-            &kp F9 &kp F10 &kp F11 &kp F12 &none				            &kp 0 &kp 1 &kp 2 &kp 3 &kp DOT
+            &kp F1 &kp F2 &kp F3 &kp F4 &none 			                    &kp MINUS &kp N7 &kp N8 &kp N9 &kp BACKSPACE 
+            &bhm LGUI F5 &bhm LALT F6 &bhm LSHFT F7 &bhm LCTRL F8 &none     &kp EQUAL &bhm RCTRL N4 &bhm RSHFT N5 &bhm RALT N6 &bhm RGUI RETURN
+            &kp F9 &kp F10 &kp F11 &kp F12 &none				            &kp N0 &kp N1 &kp N2 &kp N3 &kp DOT
                                                               &none &none   &none &none
             >;
 		};
