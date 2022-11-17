@@ -22,8 +22,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;    // <---[[moderate duration]]
-            quick-tap-ms = <0>;
+            tapping-term-ms = <800>;    // <---[[extra long duration]]
+            quick-tap-ms = <-1>; // disabled
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
@@ -98,6 +98,16 @@
             timeout-ms = <50>;
             key-positions = <12 17>;
             bindings = <&caps_word>;
+        };
+        combo_lgui {
+            timeout-ms = <50>;
+            key-positions = <10 19>;
+            bindings = <&kp LGUI>;
+        };
+        combo_lalt {
+            timeout-ms = <50>;
+            key-positions = <11 18>;
+            bindings = <&kp LALT>;
         };
     };
 
