@@ -22,13 +22,13 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <800>;    // <---[[extra long duration]]
+            tapping-term-ms = <200>;    // <---[[regular duration]]
             quick-tap-ms = <0>; // disabled
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 	
-	bspc_del: backspace_delete {
+        bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "BACKSPACE_DELETE";
             #binding-cells = <0>;
@@ -36,53 +36,65 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 	
-	undo_redo: undo_redo {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "UNDO_REDO";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(Z)>, <&kp LC(Y)>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	};
+        undo_redo: undo_redo {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UNDO_REDO";
+            #binding-cells = <0>;
+            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 	
-	copy_cut: copy_cut {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_CUT";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(C)>, <&kp LC(X)>;
-	    mods = <(MOD_LCTL|MOD_RCTL)>;
-	};
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COPY_CUT";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C)>, <&kp LC(X)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
 	
-	copy_cut_paste: copy_cut_paste {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_CUT_PASTE";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(V)>, <&copy_cut>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	}; 
+        copy_cut_paste: copy_cut_paste {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COPY_CUT_PASTE";
+            #binding-cells = <0>;
+            bindings = <&kp LC(V)>, <&copy_cut>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        }; 
 	
-	copy_paste: copy_paste {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_PASTE";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(C)>, <&kp LC(V)>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	};
+        // copy_paste: copy_paste {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     label = "COPY_PASTE";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp LC(C)>, <&kp LC(V)>;
+        //     mods = <(MOD_LSFT|MOD_RSFT)>;
+        // };
     };
     
     combos {
         compatible = "zmk,combos";
 	
-	combo_z {
+        combo_z {
             timeout-ms = <50>;
             key-positions = <20 21>;
             layers = <DEFAULT>;
             bindings = <&kp Z>;
         };
-	combo_q {
+        combo_q {
             timeout-ms = <50>;
             key-positions = <28 29>;
             layers = <DEFAULT>;
             bindings = <&kp Q>;
+        };
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            layers = <DEFAULT>;
+            bindings = <&kp ESC>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            layers = <DEFAULT>;
+            bindings = <&kp TAB>;
         };
         combo_system_layer_left {
             timeout-ms = <50>;
