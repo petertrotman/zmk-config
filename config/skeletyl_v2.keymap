@@ -103,7 +103,7 @@
         };
         combo_system_layer_right {
             timeout-ms = <50>;
-            key-positions = <32 33>;
+            key-positions = <34 35>;
             bindings = <&mo SYSTEM>;
         };
         combo_caps_word {
