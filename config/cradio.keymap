@@ -5,8 +5,8 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define DEFAULT 0
 #define SYMBOLS 1
@@ -16,94 +16,111 @@
 #define SYSTEM 5
 
 / {
-
     behaviors {
         bhm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <800>;    // <---[[extra long duration]]
-            quick-tap-ms = <0>; // disabled
+            tapping-term-ms = <800>;// <---[[extra long duration]]
+            quick-tap-ms = <0>;// disabled
             flavor = "balanced";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
-	
-	bspc_del: backspace_delete {
+        bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "BACKSPACE_DELETE";
             #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            bindings =
+                <&kp BACKSPACE>,
+                <&kp DELETE>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-	
-	undo_redo: undo_redo {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "UNDO_REDO";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(Z)>, <&kp LC(Y)>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	};
-	
-	copy_cut: copy_cut {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_CUT";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(C)>, <&kp LC(X)>;
-	    mods = <(MOD_LCTL|MOD_RCTL)>;
-	};
-	
-	copy_cut_paste: copy_cut_paste {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_CUT_PASTE";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(V)>, <&copy_cut>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	}; 
-	
-	copy_paste: copy_paste {
-	    compatible = "zmk,behavior-mod-morph";
-	    label = "COPY_PASTE";
-	    #binding-cells = <0>;
-	    bindings = <&kp LC(C)>, <&kp LC(V)>;
-	    mods = <(MOD_LSFT|MOD_RSFT)>;
-	};
+        undo_redo: undo_redo {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UNDO_REDO";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LC(Z)>,
+                <&kp LC(Y)>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COPY_CUT";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LC(C)>,
+                <&kp LC(X)>;
+
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        copy_cut_paste: copy_cut_paste {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COPY_CUT_PASTE";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LC(V)>,
+                <&copy_cut>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        copy_paste: copy_paste {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COPY_PASTE";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LC(C)>,
+                <&kp LC(V)>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
-    
+
     combos {
         compatible = "zmk,combos";
-	
-	combo_z {
+
+        combo_z {
             timeout-ms = <50>;
             key-positions = <20 21>;
             layers = <DEFAULT>;
             bindings = <&kp Z>;
         };
-	combo_q {
+
+        combo_q {
             timeout-ms = <50>;
             key-positions = <28 29>;
             layers = <DEFAULT>;
             bindings = <&kp Q>;
         };
+
         combo_system_layer_left {
             timeout-ms = <50>;
             key-positions = <30 31>;
             bindings = <&mo SYSTEM>;
         };
+
         combo_system_layer_right {
             timeout-ms = <50>;
             key-positions = <32 33>;
             bindings = <&mo SYSTEM>;
         };
+
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <12 17>;
             bindings = <&caps_word>;
         };
+
         combo_lgui {
             timeout-ms = <50>;
             key-positions = <10 19>;
             bindings = <&kp LGUI>;
         };
+
         combo_lalt {
             timeout-ms = <50>;
             key-positions = <11 18>;
@@ -113,59 +130,59 @@
 
     keymap {
         compatible = "zmk,keymap";
-                
+
         default_layer {
             bindings = <
-            &kp J &kp G &kp M &kp P &kp V 						      &kp SEMI &kp DOT  &kp SLASH &kp SQT &kp DQT 
-            &bhm LGUI R &bhm LALT S &bhm LSHFT N &bhm LCTRL D &kp B   &kp COMMA &bhm RCTRL A &bhm RSHFT E &bhm RALT I &bhm RGUI H
-            &kp X &kp F &kp L &kp C &kp W				              &kp MINUS &kp U &kp O &kp Y &kp K
-            &lt MEDIA BACKSPACE &lt SYMBOLS T  				          &lt NAVIGATE SPACE &lt NUMPAD RETURN
+&kp J        &kp G        &kp M         &kp P                &kp V            &kp SEMI            &kp DOT            &kp SLASH     &kp SQT      &kp DQT
+&bhm LGUI R  &bhm LALT S  &bhm LSHFT N  &bhm LCTRL D         &kp B            &kp COMMA           &bhm RCTRL A       &bhm RSHFT E  &bhm RALT I  &bhm RGUI H
+&kp X        &kp F        &kp L         &kp C                &kp W            &kp MINUS           &kp U              &kp O         &kp Y        &kp K
+                                        &lt MEDIA BACKSPACE  &lt SYMBOLS T    &lt NAVIGATE SPACE  &lt NUMPAD RETURN
             >;
-		};
-        
+        };
+
         symbols_layer {
             bindings = <
-            &kp ESC &kp TAB &kp GRAVE &kp TILDE &none 			                    &trans &trans &kp LBRC &kp RBRC &bspc_del 
-            &bhm LGUI EXCL &bhm LALT AT &bhm LSHFT NUHS &bhm LCTRL DLLR &kp POUND   &trans &bhm RCTRL EQUAL &bhm RSHFT LPAR &bhm RALT RPAR &bhm RGUI RETURN
-            &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp NUBS				            &trans &kp PLUS &kp LBKT &kp RBKT &kp DEL
-                                                                      &none &none   &none &none
+&kp ESC         &kp TAB       &kp GRAVE        &kp TILDE        &none        &trans  &trans            &kp LBRC         &kp RBRC        &bspc_del
+&bhm LGUI EXCL  &bhm LALT AT  &bhm LSHFT NUHS  &bhm LCTRL DLLR  &kp POUND    &trans  &bhm RCTRL EQUAL  &bhm RSHFT LPAR  &bhm RALT RPAR  &bhm RGUI RETURN
+&kp PRCNT       &kp CARET     &kp AMPS         &kp ASTRK        &kp NUBS     &trans  &kp PLUS          &kp LBKT         &kp RBKT        &kp DEL
+                                               &none            &none        &none   &none
             >;
-		};
-        
+        };
+
         navigate_layer {
             bindings = <
-            &kp ESC &kp TAB &none &none &none             &none &copy_cut_paste &kp LC(LS(TAB)) &kp LC(TAB) &undo_redo
-            &kp LGUI &kp LALT &kp LSHFT &kp LCTRL &none   &none &kp LEFT &kp DOWN &kp UP &kp RIGHT
-            &none &none &none &none &none		  &none &kp HOME &kp PGDN &kp PGUP &kp END
-                                          &none &none     &none &none
+&kp ESC   &kp TAB   &none      &none      &none    &none  &copy_cut_paste  &kp LC(LS(TAB))  &kp LC(TAB)  &undo_redo
+&kp LGUI  &kp LALT  &kp LSHFT  &kp LCTRL  &none    &none  &kp LEFT         &kp DOWN         &kp UP       &kp RIGHT
+&none     &none     &none      &none      &none    &none  &kp HOME         &kp PGDN         &kp PGUP     &kp END
+                               &none      &none    &none  &none
             >;
-		};
-        
+        };
+
         numpad_layer {
             bindings = <
-            &kp F1 &kp F2 &kp F3 &kp F4 &none 			                    &kp MINUS &kp N7 &kp N8 &kp N9 &bspc_del 
-            &bhm LGUI F5 &bhm LALT F6 &bhm LSHFT F7 &bhm LCTRL F8 &none     &kp EQUAL &bhm RCTRL N4 &bhm RSHFT N5 &bhm RALT N6 &bhm RGUI RETURN
-            &kp F9 &kp F10 &kp F11 &kp F12 &none				            &kp N0 &kp N1 &kp N2 &kp N3 &kp DOT
-                                                              &none &none   &none &none
+&kp F1        &kp F2        &kp F3         &kp F4         &none    &kp MINUS  &kp N7         &kp N8         &kp N9        &bspc_del
+&bhm LGUI F5  &bhm LALT F6  &bhm LSHFT F7  &bhm LCTRL F8  &none    &kp EQUAL  &bhm RCTRL N4  &bhm RSHFT N5  &bhm RALT N6  &bhm RGUI RETURN
+&kp F9        &kp F10       &kp F11        &kp F12        &none    &kp N0     &kp N1         &kp N2         &kp N3        &kp DOT
+                                           &none          &none    &none      &none
             >;
-		};
-        
+        };
+
         media_layer {
             bindings = <
-            &none &kp C_VOL_DN &kp C_VOL_UP &none &none               &none &none &none &none &none 
-            &kp C_PREV &kp C_MUTE &kp C_PLAY_PAUSE &kp C_NEXT &none   &none &none &none &none &none
-            &none &none &none &none &none				              &none &none &none &none &none
-                                                      &none &none     &none &none
+&none       &kp C_VOL_DN  &kp C_VOL_UP      &none       &none    &none  &none  &none  &none  &none
+&kp C_PREV  &kp C_MUTE    &kp C_PLAY_PAUSE  &kp C_NEXT  &none    &none  &none  &none  &none  &none
+&none       &none         &none             &none       &none    &none  &none  &none  &none  &none
+                                            &none       &none    &none  &none
             >;
-		};
-        
+        };
+
         system_layer {
             bindings = <
-            &none &bt BT_PRV &bt BT_NXT &bt BT_CLR &reset              &reset &none &none &none &none 
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none  &none &none &none &none &none
-            &none &none &none &none &none			       &none &none &none &none &none
-                                        &none &none     &none &none
+&none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR    &sys_reset    &sys_reset  &none  &none  &none  &none
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none         &none       &none  &none  &none  &none
+&none         &none         &none         &none         &none         &none       &none  &none  &none  &none
+                                          &none         &none         &none       &none
             >;
-		};
-	};
+        };
+    };
 };
