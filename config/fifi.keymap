@@ -16,6 +16,10 @@
 #define MEDIA 4
 #define SYSTEM 5
 
+&led_strip {
+    chain-length = <8>;
+};
+
 / {
     behaviors {
         bhm: balanced_homerow_mods {
