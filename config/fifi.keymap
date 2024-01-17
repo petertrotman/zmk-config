@@ -154,7 +154,7 @@
 &kp J        &kp G        &kp M                &kp P          &kp V    &kp EQUAL  &kp MINUS           &kp SLASH          &kp SQT      &kp SEMI
 &bhm LGUI R  &bhm LALT S  &bhm LSHFT N         &bhm LCTRL D   &kp B    &kp COMMA  &bhm RCTRL A        &bhm RSHFT E       &bhm RALT I  &bhm RGUI H
 &kp X        &kp F        &kp L                &kp C          &kp W    &kp DOT    &kp U               &kp O              &kp Y        &kp K
-                          &lt MEDIA BACKSPACE  &lt SYMBOLS T  &none    &none      &lt NAVIGATE SPACE  &lt NUMPAD RETURN
+                          &none                &lt MEDIA BACKSPACE  &lt SYMBOLS T     &lt NAVIGATE SPACE  &lt NUMPAD RETURN  &none 
             >;
         };
 
