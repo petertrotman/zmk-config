@@ -25,48 +25,42 @@
             tapping-term-ms = <200>;// <---[[regular duration]]
             quick-tap-ms = <0>;// disabled
             flavor = "balanced";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
         };
+
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "BACKSPACE_DELETE";
             #binding-cells = <0>;
-            bindings =
-                <&kp BACKSPACE>,
-                <&kp DELETE>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+
         undo_redo: undo_redo {
             compatible = "zmk,behavior-mod-morph";
             label = "UNDO_REDO";
             #binding-cells = <0>;
-            bindings =
-                <&kp LC(Z)>,
-                <&kp LC(Y)>;
+            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         copy_cut: copy_cut {
             compatible = "zmk,behavior-mod-morph";
             label = "COPY_CUT";
             #binding-cells = <0>;
-            bindings =
-                <&kp LC(C)>,
-                <&kp LC(X)>;
+            bindings = <&kp LC(C)>, <&kp LC(X)>;
 
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+
         copy_cut_paste: copy_cut_paste {
             compatible = "zmk,behavior-mod-morph";
             label = "COPY_CUT_PASTE";
             #binding-cells = <0>;
-            bindings =
-                <&kp LC(V)>,
-                <&copy_cut>;
+            bindings = <&kp LC(V)>, <&copy_cut>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -84,16 +78,16 @@
         compatible = "zmk,combos";
 
         combo_z {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <20 21>;
-            layers = <DEFAULT>;
+            layers = <0>;
             bindings = <&kp Z>;
         };
 
         combo_q {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <28 29>;
-            layers = <DEFAULT>;
+            layers = <0>;
             bindings = <&kp Q>;
         };
 
