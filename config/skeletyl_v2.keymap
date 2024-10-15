@@ -38,15 +38,6 @@
             keep-mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        undo_redo: undo_redo {
-            compatible = "zmk,behavior-mod-morph";
-            label = "UNDO_REDO";
-            #binding-cells = <0>;
-            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         copy_cut: copy_cut {
             compatible = "zmk,behavior-mod-morph";
             label = "COPY_CUT";
@@ -116,24 +107,6 @@
             key-positions = <34 35>;
             bindings = <&mo SYSTEM>;
         };
-
-        combo_caps_word {
-            timeout-ms = <50>;
-            key-positions = <12 17>;
-            bindings = <&caps_word>;
-        };
-
-        combo_lgui {
-            timeout-ms = <50>;
-            key-positions = <10 19>;
-            bindings = <&kp LGUI>;
-        };
-
-        combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <11 18>;
-            bindings = <&sk RALT>;
-        };
     };
 
     keymap {
@@ -150,7 +123,7 @@
 
         symbols_layer {
             bindings = <
-&kp ESC         &kp TAB       &kp TILDE2       &kp GRAVE        &none        &trans  &trans           &trans           &trans          &trans
+&kp ESC         &kp TAB       &kp TILDE2       &kp GRAVE        &kp PIPE     &trans  &trans           &trans           &trans          &trans
 &bhm LGUI EXCL  &bhm LALT AT  &bhm LSHFT NUHS  &bhm LCTRL DLLR  &kp POUND    &trans  &bhm RCTRL LBKT  &bhm RSHFT LPAR  &bhm LALT RPAR  &bhm RGUI RETURN
 &kp PRCNT       &kp CARET     &kp AMPS         &kp ASTRK        &kp NUBS     &trans  &kp RBKT         &kp LBRC         &kp RBRC        &kp DEL
                               &none            &none            &none        &none   &none            &none
@@ -159,10 +132,10 @@
 
         navigate_layer {
             bindings = <
-&kp ESC   &kp TAB   &none      &none      &none    &none  &copy_cut_paste  &kp LC(LS(TAB))  &kp LC(TAB)  &undo_redo
-&kp LGUI  &kp LALT  &kp LSHFT  &kp LCTRL  &none    &none  &kp LEFT         &kp DOWN         &kp UP       &kp RIGHT
-&none     &none     &none      &none      &none    &none  &kp HOME         &kp PAGE_DOWN    &kp PAGE_UP  &kp END
-                    &none      &none      &none    &none  &none            &none
+&kp ESC   &kp ESCAPE     &kp TAB     &kp TAB    &none    &none  &none     &kp LC(LS(TAB))  &kp LC(TAB)  &bspc_del
+&kp LGUI  &kp LALT       &kp LSHFT   &kp LCTRL  &none    &none  &kp LEFT  &kp DOWN         &kp UP       &kp RIGHT
+&none     &kp RIGHT_ALT  &caps_word  &none      &none    &none  &kp HOME  &kp PAGE_DOWN    &kp PAGE_UP  &kp END
+                         &none       &none      &none    &none  &none     &none
             >;
         };
 
